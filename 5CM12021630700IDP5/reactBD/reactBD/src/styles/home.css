@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.con1{
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    color: rgb(245, 245, 245);
+    text-align: center;
+    padding-top: 25px;
+}
+
+.con1 , .contorno{
+    border-radius: 15px;
+    background-color: black;
+    box-shadow: 2px 2px 5px rgba(45, 46, 46, 0.537);
+    margin: 25px;
+    height: 60px;
+    width: 80%;
+    padding: 15px;
+}
+
+.con2{
+    border-radius: 35px;
+    background-color: rgb(255, 254, 254);
+    box-shadow: 2px 2px 5px rgba(151, 152, 152, 0.225);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    align-items: center;
+    width: 80%;
+}
+
+.botonB, .boton1,.boton2,.boton3{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 10px 10px 10px 10px;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid #000000; /* Cambia el color del contorno del botón */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Agrega sombra al botón */
+}
+
+.boton1{
+    background-color: rgb(53, 53, 53);
+}
+
+.boton2{
+    background-color: rgb(44, 22, 22);
+}
+
+.boton3{
+    background-color: rgb(35, 0, 0);
+}
+
+.alinear{
+    align-items: center;
+}
+
+#titulo{
+    color: aliceblue;
+}

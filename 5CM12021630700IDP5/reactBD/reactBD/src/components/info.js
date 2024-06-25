@@ -16,9 +16,9 @@ class Info extends React.Component {
     componentDidMount() {
         const qId = new URLSearchParams(window.location.search).get("id");
         if (qId) {
-            axios.get("Pregunta?id="+qId).then(response => {
+            axios.get("Pregunta?id=" + qId).then(response => {
                 const question = response.data[0];
-                this.setState({...question });               
+                this.setState({ ...question });
             }).catch(error => {
                 console.info(error);
                 alert("Ha ocurrido un error");
@@ -30,10 +30,10 @@ class Info extends React.Component {
         const { pregunta, respuesta, drags, targets } = this.state;
         return (
             <Container className="MarginContainer">
-                <h3>Informacion de la pregunta</h3>
-                <p>Pregunta: {pregunta}</p>
-                <p>Respuesta: {respuesta}</p>
-                <p>Drag Options</p>
+                <h3>Informacion de la vocal</h3>
+                <p>Vocal: {pregunta}</p>
+                <p>Descripcion: {respuesta}</p>
+                <p>Archivo de Audio</p>
                 <div className="AlignCenter">
                     {
                         drags.map(option => {
@@ -46,7 +46,7 @@ class Info extends React.Component {
                         })
                     }
                 </div>
-                <p>Target Options</p>
+                <p>Grabacion de Audio</p>
                 <div className="AlignCenter">
                     {
                         targets.map(target => {
@@ -61,7 +61,7 @@ class Info extends React.Component {
                 </div>
                 <Button
                     variant="success"
-                    className="M-6">
+                    className="M-6 boton1">
                     <Link to={`/Proyecto/home`} className="CustomLink" >
                         CRUD
                     </Link>

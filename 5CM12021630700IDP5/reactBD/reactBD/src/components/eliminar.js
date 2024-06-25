@@ -61,12 +61,12 @@ class eliminar extends React.Component {
                     <div className="col-7 mt-6 ">
                         <div className="card shadow-sm p-3 mb-5 bg-white rounded">
                             <div className="card-header text-center">
-                                <h3 className="AlignCenter">Informacion de la pregunta a eliminar</h3>
+                                <h3 className="AlignCenter">Informacion de la Vocal a Eliminar</h3>
                             </div>
                             <div className="card-body">
-                                <p className="text-start"><b>Pregunta:</b> {pregunta}</p>
-                                <p className="text-start"><b>Respuesta:</b> {respuesta}</p>
-                                <p className="text-start"><b>Drag Options</b></p>
+                                <p className="text-start"><b>Vocal</b> {pregunta}</p>
+                                <p className="text-start"><b>Descripcion</b> {respuesta}</p>
+                                <p className="text-start"><b>Eliminar Vocal</b></p>
                                 <div className="row">
                                     {
                                         drags.map(option => {
@@ -79,7 +79,7 @@ class eliminar extends React.Component {
                                         })
                                     }
                                 </div>
-                                <p className="text-start"><b>Target Options</b></p>
+                                <p className="text-start"><b>Eliminar Grabacion</b></p>
                                 <div className="row">
                                     {
                                         targets.map(target => {
@@ -94,7 +94,7 @@ class eliminar extends React.Component {
                                 </div>
                                 <div className="d-grid m-3">
                                 <div className="d-grid m-3">
-                                    <Button  variant="danger" onClick={()=> this.eliminar(id)} id="color2">
+                                    <Button  variant="danger" className="M-6 boton3" onClick={()=> this.eliminar(id)}>
                                         Eliminar
                                     </Button>
                                 </div>

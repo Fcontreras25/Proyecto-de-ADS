@@ -12,18 +12,17 @@ class Login extends React.Component {
   }
 
   validar = (usuario, password) => {
-    //fetch('http://localhost:8080/Proyecto/Login?User='+usuario+'&password='+password+'')
-    fetch('Login?User=' + usuario + '&password=' + password + '')
+    fetch('Login?User=' + usuario + '&password=' + password)
       .then(response => response.text())
-      .then(usuario => {
-        let ret = usuario.includes("yes");
+      .then(responseText => {
+        let ret = responseText.includes("yes");
 
         if (ret) {
           this.setState({ condition: true });
-          toast.success("USUARIO VALIDO");
+          toast.success("USUARIO VÁLIDO");
         } else {
           this.setState({ condition: false });
-          toast.error("USUARIO NO VALIDO");
+          toast.error("USUARIO NO VÁLIDO");
           if (this.userInputRef.current) {
             this.userInputRef.current.value = "";
           }
@@ -47,19 +46,21 @@ class Login extends React.Component {
 
     return (
       <div className="center-container" style={styles} id="equis">
-          <h1 className="AlignCenter" id="titulo"> Reconocimiento de Vocales </h1>
+        <h1 className="AlignCenter" id="titulo"> Reconocimiento de Vocales </h1>
+        <div className='contenedor tam'>
           <h2 className="AlignCenter" id="titulo2"> Contreras Martínez Fatima Belén </h2>
           <h2 className="AlignCenter" id="titulo2"> Villalobos Sánchez Ezequiel </h2>
-        <div className="conte1" id="espacios">
+        </div>
+        <div className="conte1 espacios">
           <div className="form-group">
             <label className="visually-hidden" htmlFor="specificSizeInputGroupUsername"> Username </label>
-            <div className="input-group">
-              <div className="input-group-text"> @ </div>
+            <div className="input-group zoom">
+              <div className="input-group-text contenedor"> @ </div>
               <input
                 placeholder="Ingrese el usuario"
                 type="text"
                 id="User"
-                className="form-control"
+                className="form-control contenedor zoom"
                 ref={this.userInputRef}
               />
             </div>
@@ -70,7 +71,7 @@ class Login extends React.Component {
               placeholder="Ingrese su contraseña"
               type="password"
               id="password"
-              className="form-control"
+              className="form-control contenedor"
               ref={this.passwordInputRef}
             />
           </div>

@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Pregunta from "./pregunta";
 import Swal from 'sweetalert2';
 import axios from "axios";
-import ErrorBoundary from "./error"; 
+import ErrorBoundary from "./error";
+import "../styles/home.css";
 
 class Home extends React.Component {
   state = {
@@ -15,46 +16,51 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios.get("Preguntas").then(response => {
-      this.setState({ data: response.data });
+      const validData = response.data.filter(item => item && item.id); // Filtrar items inválidos
+      this.setState({ data: validData });
     }).catch(error => {
       console.info(error);
-      this.setState({ showAlert: true, alertText: "ERROR EN LA OBTENCION DE DATOS" });
-    })
+      this.setState({ showAlert: true, alertText: "ERROR EN LA OBTENCIÓN DE DATOS" });
+    });
   }
 
   render() {
     const { data, showAlert, alertText } = this.state;
     return (
       <ErrorBoundary>
-        <Container className="MarginContainer">
+        <Container className="MarginContainer ">
           <h1 className="AlignCenter" id="titulo3"> CREAR, ALTAS, BAJAS Y CAMBIOS </h1>
+          <div className="con1" id="alinear"> C R U D </div>
           <hr style={{ width: "80%" }} />
           {
-            showAlert ?
-              <Alert variant="danger">
-                {alertText}
-              </Alert>
-              : null
+            showAlert &&
+            <Alert variant="danger">
+              {alertText}
+            </Alert>
           }
           <Button variant="info" style={{ margin: "12px" }}>
-            <Link to="/Proyecto/agregar" className="link-light link-offset-2 link-underline link-underline-opacity-0">NUEVA PREGUNTA</Link>
+            <Link to="/Proyecto/agregar" >NUEVA VOCAL</Link>
           </Button>
-          <Table striped bordered>
+          <Table striped className="con2" id="alinear">
             <thead>
               <tr>
-                <th>Pregunta</th>
+                <th>Vocales</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
               {
                 data.map(pregunta => (
-                  <Pregunta key={pregunta.id} {...pregunta} />
+                  pregunta && pregunta.id ? (
+                    <Pregunta key={pregunta.id} {...pregunta} />
+                  ) : (
+                    console.error("Item de datos inválido:", pregunta)
+                  )
                 ))
               }
             </tbody>
           </Table>
-        </Container>
+          </Container>
       </ErrorBoundary>
     )
   }

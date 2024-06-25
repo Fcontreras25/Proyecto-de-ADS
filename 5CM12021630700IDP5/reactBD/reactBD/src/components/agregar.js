@@ -11,7 +11,7 @@ class Info extends React.Component {
         //fetch('http://localhost:8080/Proyecto/Login?User='+usuario+'&password='+password+'')
         /*llamada a la API utilizando el método fetch */
         fetch('Agregar?pregunta='+pregunta+'&respuesta='+respuesta+'&ima11='+imagen11+'&val11='+valor11+'&ima12='+imagen12+'&val12='+valor12+'&ima13='+imagen13+'&val13='+valor13+
-        +'&ima14='+imagen14+'&val14='+valor14+'&ima21='+imagen21+'&val21='+valor21+'&ima22='+imagen22+'&val22='+valor22+'&ima23='+imagen23+'&val23='+valor23+'&ima24='+imagen24+'&val24='+valor24)
+        +'&ima14='+imagen14+'&val14='+valor14)
         .then(response => response.text())
         .then(usuario =>{
           let ret=usuario.includes("yes");
@@ -20,15 +20,15 @@ class Info extends React.Component {
           if(ret)
           {
             Swal.fire(
-              'Pregunta agregada',
-              'Pregunta valida',
+              'Vocal agregada',
+              'Vocal valida',
               'success'
             )      
           }
           else          
           {
             Swal.fire(
-              'No se agrego la pregunta',
+              'No se agrego la vocal',
               'Error',
               'error'
             )                 
@@ -49,38 +49,29 @@ class Info extends React.Component {
                   <div className="col-7 mt-6 ">
                     <div className="card shadow-sm p-3 mb-5 bg-white rounded">
                       <div className="card-header text-center">
-                        <h3 className="AlignCenter" > Agregar pregunta </h3>
+                        <h3 className="AlignCenter" > Agregar Vocal </h3>
                       </div>
                       <div className="card-body">
                         <form action="">
-                          <label className="form-label">Pregunta :</label> 
-                          <input className="form-control" type="text" placeholder="Valor de la pregunta" id ="pregunta" />
-                          <label className="forma-label">Respuesta: </label>
-                          <input className="form-control" type="text" placeholder="Respuesta de la pregunta" id = "respuesta"/> 
+                          <label className="form-label">Vocal :</label> 
+                          <input className="form-control" type="text" placeholder="Nombre de la vocal" id ="pregunta" />
+                          <label className="forma-label">Descripcion: </label>
+                          <input className="form-control" type="text" placeholder="Detalles" id = "respuesta"/> 
                           
-                          <label className="form-label"><b>Drag options</b></label>
+                          <label className="form-label"><b>Archivo de Audio</b></label>
                            
                                              
-                              <input className="form-control m-2" type="text" placeholder="SRC de la imagen o link" id = "10"></input> 
-                              <input className="form-control m-2" type="text" placeholder="Valor de la imagen" id = "20"></input> 
-                              <input className="form-control m-2" type="text" placeholder="SRC de la imagen o link" id = "11"></input> 
-                              <input className="form-control m-2" type="text" placeholder="Valor de la imagen" id = "21"></input> 
-                              <input className="form-control m-2" type="text" placeholder="SRC de la imagen o link" id = "12"></input> 
-                              <input className="form-control m-2" type="text" placeholder="Valor de la imagen" id = "22"></input> 
-                              <input className="form-control m-2" type="text" placeholder="SRC de la imagen o link" id = "13"></input> 
-                              <input className="form-control m-2" type="text" placeholder="Valor de la imagen" id = "23"></input> 
+                              <input className="form-control m-2" type="text" placeholder="Nombre del archivo de audio 1" id = "10"></input> 
+                              <input className="form-control m-2" type="text" placeholder="Descripcion" id = "20"></input> 
+                              <input className="form-control m-2" type="text" placeholder="Nombre del archivo de audio 2" id = "11"></input> 
+                              <input className="form-control m-2" type="text" placeholder="Descripcion" id = "21"></input> 
                               
                           
-                          <label className="form-label"><b>Target Options</b></label>
+                          <label className="form-label"><b>Grabar Audio</b></label>
                           
-                              <input className="form-control m-2" type="text" placeholder="SRC de la imagen o link" id = "30"></input> 
-                              <input className="form-control m-2" type="text" placeholder="Valor de la imagen" id = "40"></input> 
-                              <input className="form-control m-2" type="text" placeholder="SRC de la imagen o link" id = "31"></input> 
-                              <input className="form-control m-2" type="text" placeholder="Valor de la imagen" id = "41"></input> 
-                              <input className="form-control m-2" type="text" placeholder="SRC de la imagen o link" id = "32"></input> 
-                              <input className="form-control m-2" type="text" placeholder="Valor de la imagen" id = "42"></input>
-                              <input className="form-control m-2" type="text" placeholder="SRC de la imagen o link" id = "33"></input> 
-                              <input className="form-control m-2" type="text" placeholder="Valor de la imagen" id = "43"></input>
+                              <input className="form-control m-2" type="text" placeholder="Nombre de la grabacion" id = "30"></input> 
+                              <input className="form-control m-2" type="text" placeholder="Descripcion" id = "40"></input> 
+
                           <div className="d-grid" >
                           <Button  variant="success" id="color2" onClick={() => this.validar(
                               document.getElementById("pregunta").value,
@@ -89,18 +80,8 @@ class Info extends React.Component {
                               document.getElementById("20").value,
                               document.getElementById("11").value,
                               document.getElementById("21").value,
-                              document.getElementById("12").value,
-                              document.getElementById("22").value,
-                              document.getElementById("13").value,
-                              document.getElementById("23").value,
                               document.getElementById("30").value,
                               document.getElementById("40").value,
-                              document.getElementById("31").value,
-                              document.getElementById("41").value,
-                              document.getElementById("32").value,
-                              document.getElementById("42").value,
-                              document.getElementById("33").value,
-                              document.getElementById("43").value
                               )}>
                               Incluir
                           </Button>
